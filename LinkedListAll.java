@@ -1,0 +1,133 @@
+package List;
+
+public class LinkedListAll {
+
+    // Node
+    class Node {
+
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    // Head
+    Node head;
+
+
+    // Insert at Beginning
+    void insertAtBeginning(int data) {
+
+        Node newnode = new Node(data);
+
+        newnode.next = head;
+
+        head = newnode;
+    }
+
+
+    // Insert at End
+    void insertAtEnd(int data) {
+
+        Node newnode = new Node(data);
+
+        if (head == null) {
+            head = newnode;
+            return;
+        }
+
+        Node current = head;
+
+        while (current.next != null) {
+            current = current.next;
+        }
+
+        current.next = newnode;
+    }
+
+
+    // Delete at Beginning
+    void deleteAtBeginning() {
+
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        head = head.next;
+    }
+
+
+    // Delete at End
+    void deleteAtEnd() {
+
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        // Only one node
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+
+        Node current = head;
+
+        while (current.next.next != null) {
+            current = current.next;
+        }
+
+        current.next = null;
+    }
+
+
+    // Display
+    void display() {
+
+        Node current = head;
+
+        while (current != null) {
+            System.out.print(current.data + " -> ");
+            current = current.next;
+        }
+
+        System.out.println("Null");
+    }
+
+
+    // Main
+    public static void main(String args[]) {
+
+        LinkedListAll list = new LinkedListAll();
+
+
+        // Insert at end
+        list.insertAtEnd(10);
+        list.insertAtEnd(20);
+        list.insertAtEnd(30);
+
+        list.display();
+
+
+        // Insert at beginning
+        list.insertAtBeginning(5);
+
+        list.display();
+
+
+        // Delete at beginning
+        list.deleteAtBeginning();
+
+        list.display();
+
+
+        // Delete at end
+        list.deleteAtEnd();
+
+        list.display();
+    }
+}
