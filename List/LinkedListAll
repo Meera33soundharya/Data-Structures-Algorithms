@@ -100,7 +100,7 @@ public class LinkedListAll {
 
 
     // Main
-    public static void main(String args[]) {
+    public static void main(String [] args) {
 
         LinkedListAll list = new LinkedListAll();
 
